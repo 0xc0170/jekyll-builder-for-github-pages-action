@@ -13,7 +13,9 @@ set -e
 echo "Starting the Jekyll Action"
 
 chmod -R a+w /github/workspace
-git config --global --add safe.directory /github/workspace
+git config --system --add safe.directory /github/workspace
+echo "Git config safe directory set"
+
 
 # Simulate GitHub Actions environment if not invoked there.
 if [ "true" != "$GITHUB_ACTIONS" ]; then
