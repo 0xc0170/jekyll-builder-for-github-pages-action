@@ -13,7 +13,8 @@ set -e
 echo "Starting the Jekyll Action"
 
 chmod -R a+w /github/workspace
-git config --system --add safe.directory /github/workspace
+chmod -R a+w /srv/jekyll
+git config --system --add safe.directory "*"
 echo "Git config safe directory set"
 
 
