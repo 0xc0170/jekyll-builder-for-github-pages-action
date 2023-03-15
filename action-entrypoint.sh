@@ -54,6 +54,8 @@ function setup_build_repo {
     local -r committer_email="${INPUT_GIT_COMMITTER_EMAIL:-${actor_email:-$GITHUB_ACTOR@users.noreply.github.com}}"
     git config user.email "$committer_email"
 
+    git config --global --add safe.directory /srv/jekyll
+
     # Set committer name.
     local actor_name="$(cat "$actor_data_path" | getFromJSON name)"
     git config user.name "${INPUT_GIT_COMMITTER_NAME:-${actor_name:-Github Actions ($GITHUB_WORKFLOW:$GITHUB_ACTION)}}"
