@@ -10,6 +10,11 @@ fi
 # Any errors should cause an immediate exit and failure.
 set -e
 
+echo "Starting the Jekyll Action"
+
+chmod -R a+w /github/workspace
+git config --global --add safe.directory /github/workspace
+
 # Simulate GitHub Actions environment if not invoked there.
 if [ "true" != "$GITHUB_ACTIONS" ]; then
     source /usr/local/lib/github-action/environment.sh
